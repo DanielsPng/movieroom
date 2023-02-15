@@ -1,0 +1,210 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+body{
+    background-color: #1E1621;
+    overflow-x: hidden;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    z-index: 1;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background: none; 
+    gap: 30px;
+
+    height: 10vh;    
+    width: 100%;
+  
+    .logo{
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      transition: all .4s ease-in-out;
+      
+      img{
+        max-width: 120px;
+        padding: 10px;
+        cursor: pointer;
+      }
+  
+    }
+
+    a {
+      text-decoration: none;
+      color: beige;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: 20px;
+      padding: .75rem 1rem;
+      
+    
+      background-size: 0 1px, 0 0;
+      background-position: 50% 100%;
+      background-repeat: no-repeat;
+
+
+      &:hover{
+        color: #c1a6db;
+        transition: 0.2s ease-in-out;
+    }
+
+      }
+      a.active{
+        color: #8646C2;
+    }
+
+
+    
+    .nav-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      list-style: none;
+      height: 100%;
+      
+      &.active {
+        transform: translateY(0);
+        z-index: 1;
+        top: 0;
+      }
+    }
+  }
+  
+  .mobile-menu {
+    display: none;
+    cursor: pointer;
+    z-index: 2;
+
+    > div {
+      width: 32px;
+      height: 2px;
+      background: #fff;
+      margin: 8px;
+      transition: 0.3s;
+    }
+
+    &.active {
+      .line1 {
+        transform: rotate(-45deg) translate(-8px, 8px);
+      }
+
+      .line2 {
+        opacity: 0;
+      }
+
+      .line3 {
+        transform: rotate(45deg) translate(-5px, -7px);
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    header{
+        height: 100%;
+    }
+    .nav-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background:rgba(54, 54, 54, 0.2);
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(5px);
+      flex-direction: column;
+      align-items: center;
+      gap: 15%;
+      justify-content: center;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in;
+  
+      > li {
+          margin-left: none;
+      }
+    }
+    .mobile-menu {
+        display: block;
+    }
+  }
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.presentation{
+    position: relative;
+    padding: 5rem;
+    overflow: hidden;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 5rem;
+
+    .glow{
+        position: absolute;
+        z-index: -1;
+    }
+
+    .mouse_down{
+        position: absolute;
+        margin-left: 45%;
+        top: 80%;
+
+        img{
+            width: 80%;
+            filter: opacity(40%);
+        }
+        
+    }
+
+    .presentation__left{
+        h1{
+            color: white;
+            font-size: 5rem;
+            line-height: 5rem;
+        }
+        p{
+            color: rgba(255, 255, 255, 0.877);
+            font-weight: lighter;
+        }
+    }
+
+    .presentation__right{
+        .image{
+            filter: drop-shadow(-1px 30px 20px rgba(0, 0, 0, 0.301));
+            img{
+                width: 100%;
+                mask-image: linear-gradient(rgba(0, 0, 0, 0.863) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+            }
+        }
+    }
+}
