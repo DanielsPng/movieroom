@@ -5,7 +5,7 @@
   }
 
 body{
-    background-color: #1E1621;
+   background-color: #1E1621;
     overflow-x: hidden;
 
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -159,24 +159,34 @@ header {
 }
 
 .presentation{
+  //  background-image: url(/assets/images/376711-4k-wallpaper.jpg);
+  //  background-size: 100%;
+  //  background-repeat: no-repeat;
     position: relative;
-    padding: 5rem;
+    justify-content: center;
     overflow: hidden;
     height: 100vh;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     align-items: center;
     gap: 5rem;
 
+    .bk{
+      position: absolute;
+      z-index: -2;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
     .glow{
         position: absolute;
+        left: -20%;
         z-index: -1;
     }
 
     .mouse_down{
         position: absolute;
-        margin-left: 45%;
         top: 80%;
 
         img{
@@ -186,25 +196,25 @@ header {
         
     }
 
-    .presentation__left{
+    .presentation__text{
+      top: 4rem;
+      position: absolute;
+      padding: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
         h1{
             color: white;
-            font-size: 5rem;
+            font-size: 3rem;
             line-height: 5rem;
         }
         p{
             color: rgba(255, 255, 255, 0.877);
             font-weight: lighter;
+            text-align: center;
+            width: 70%;
         }
     }
 
-    .presentation__right{
-        .image{
-            filter: drop-shadow(-1px 30px 20px rgba(0, 0, 0, 0.301));
-            img{
-                width: 100%;
-                mask-image: linear-gradient(rgba(0, 0, 0, 0.863) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
-            }
-        }
-    }
 }
