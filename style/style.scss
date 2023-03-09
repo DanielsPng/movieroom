@@ -62,7 +62,7 @@ header {
 
       }
       a.active{
-        color: #8646C2;
+        color: #100618;
     }
 
 
@@ -74,6 +74,13 @@ header {
       
       list-style: none;
       height: 100%;
+
+      background: rgba( 255, 255, 255, 0.05 );
+      box-shadow: 0 8px 32px 0 rgba(24, 24, 24, 0.415);
+      backdrop-filter: blur( 5px );
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+
       
       &.active {
         transform: translateY(0);
@@ -159,9 +166,18 @@ header {
 }
 
 .presentation{
-  //  background-image: url(/assets/images/376711-4k-wallpaper.jpg);
-  //  background-size: 100%;
-  //  background-repeat: no-repeat;
+  .shadow{
+    width: 100vw;
+    height: 100vh;
+    background-color: #1E1621;
+    opacity: 30%;
+    
+  }
+    background-image: url(/assets/images/joker-.jpg);
+    mask-image: linear-gradient(rgba(0, 0, 0, 0.863) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     position: relative;
     justify-content: center;
     overflow: hidden;
@@ -176,7 +192,9 @@ header {
       z-index: -2;
       display: flex;
       align-items: center;
-      width: 100%;
+      img{
+        width: 100vw;
+      }
     }
 
     .glow{
@@ -187,16 +205,33 @@ header {
 
     .mouse_down{
         position: absolute;
-        top: 80%;
+        top: 85%;
 
         img{
-            width: 80%;
-            filter: opacity(40%);
+            width: 60%;
+            
         }
         
     }
 
+    .joker{
+
+    
+      img{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 30%;
+
+      }
+    }
+
     .presentation__text{
+
+      @media (max-width: 900px) {
+      padding: 0;
+      top: 13rem;
+      }
       top: 4rem;
       position: absolute;
       padding: 5rem;
@@ -208,13 +243,18 @@ header {
             color: white;
             font-size: 3rem;
             line-height: 5rem;
+
+            
         }
         p{
             color: rgba(255, 255, 255, 0.877);
             font-weight: lighter;
+            font-size: 1.2rem;
             text-align: center;
-            width: 70%;
+            width: 60%;
         }
     }
+
+
 
 }
