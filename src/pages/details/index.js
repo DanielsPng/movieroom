@@ -12,7 +12,7 @@ function Details(){
 
     useEffect(() => {
 
-        fetch( `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en-US&page=1`)
+        fetch( `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=pt-Br-US&page=1`)
           .then(response => response.json())
           .then(data => {
 
