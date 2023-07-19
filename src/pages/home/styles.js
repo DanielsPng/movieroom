@@ -8,6 +8,54 @@ export const Container = styled.div `
         height: 80px;
         z-index: 1;
     }
+
+    .movie-rating {
+        position: relative;
+        top: -60px;
+        left: 150px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+        }
+
+    .search-bar{
+        margin-top: 20px;
+
+        input{
+
+            padding: 11px 15px;
+            width: 266px;
+            border: none;
+            border-bottom-left-radius: 4rem;
+            border-top-left-radius: 4rem;
+        }
+
+        button{
+            position : relative;
+            right: 20px;
+            padding: 9.8px 40px;
+            background: #6654da;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-size: 100%;
+            transition: 0.3s;
+            /* border-bottom-right-radius: 4rem;
+            border-top-right-radius: 4rem; */
+            border-radius: 4rem;
+            border: none;
+            box-shadow: -4px 2px 25px black;
+        }
+    }
+
+
     
     nav {
         display: flex;
@@ -140,23 +188,11 @@ export const Container = styled.div `
         }
     }
     .presentation {
-        -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.863) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
-                mask-image: linear-gradient(rgba(0, 0, 0, 0.863) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        position: relative;
         justify-content: center;
         overflow: hidden;
-        height: 100vh;
         display: flex;
         align-items: center;
         gap: 5rem;
-    }
-    @media (max-width: 900px) {
-        .presentation {
-        background-size: 1100px;
-        }
     }
 
     .presentation .glow {
@@ -168,6 +204,7 @@ export const Container = styled.div `
     .presentation .mouse_down {
         position: absolute;
         top: 85%;
+        
     }
     .presentation .mouse_down img {
         width: 60%;
@@ -182,20 +219,29 @@ export const Container = styled.div `
         justify-content: center;
         flex-direction: column;
     }
-    .presentation .bg{
+    .bg{
+        -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.863) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+                mask-image: linear-gradient(rgba(0, 0, 0, 0.863) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+
         opacity: 70%;
-        position: absolute;
-        z-index: 0;
-        background-size: cover;
-        width: 1790px
+        width: 200%;
+        height: 110%;
+        max-width: 1400px; /* Defina o tamanho máximo da imagem de acordo com suas preferências */
+        object-fit: contain;
+
+      
     }
 
     @media (max-width: 900px) {
-        .presentation .bg {
-            position: absolute;
+        .bg {
+            max-width: 900px;
             left: -600px;
             width: 1500px;
 
+        }
+
+        .mouse_down {
+            display: none;
         }
     }
 
@@ -203,7 +249,7 @@ export const Container = styled.div `
     @media (max-width: 900px) {
         .presentation .presentation__text {
         padding: 0;
-        top: 13rem;
+        top: 10rem;
         }
     }
 
@@ -251,7 +297,29 @@ export const Container = styled.div `
         margin-bottom: 4rem;
     }
 
-    
+    .show-more-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  .show-more-button {
+    padding: 8px 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    color: #6654da;
+    font-size: 100%;
+    transition: 0.3s;
+
+    &:hover {
+        color: whitesmoke;
+    }
+
+
+
+}
 
 
 
@@ -267,8 +335,8 @@ export const MovieList = styled.ul `
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     list-style: none;
-    column-gap: 3rem;
-    row-gap: 4rem;
+    column-gap: 2rem;
+    row-gap: 3rem;
     padding-bottom: 20px;
     /* padding-top: 10vh; */
     margin-left: 10rem;
@@ -298,20 +366,12 @@ export const MovieList = styled.ul `
         margin-bottom: 10px;
     }
 
-    span{
+    /* span{
+        position: relative;
+        top: -30px;
         font-weight: light;
         font-size: 80%;
         text-align: center;
-    }
-
-
-    a{
-        transition: all 0.3s;
-    }
-
-    a:hover{
-        filter: drop-shadow(3px 0px 9px rgba(0, 0, 0, 0.1));
-        transform: scale(1.1);
-    }
+    } */
 
  `
