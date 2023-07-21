@@ -1,20 +1,21 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
 
-.movie-banner {
-    -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.863) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
-     mask-image: linear-gradient(rgba(0, 0, 0, 0.863) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+export const Container = styled.div`
+  cursor: default;
+
+  .movie-banner {
+    mask-image: linear-gradient(rgb(0 0 0 / 93%) 0%, rgb(0 0 0 / 88%) 50%, rgb(0 0 0 / 0%) 100%);
     position: absolute;
     width: 100%;
-    height: 50vh; /* Ajuste a altura conforme necessário */
+    height: 55vh; /* Ajuste a altura conforme necessário */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 20%;
+    opacity: 30%;
     z-index: -1;
-  
-}
+   }
+
   @media (max-width: 900px) {
     
 
@@ -68,8 +69,6 @@ export const Container = styled.div`
 
   h1 {
     font-size: 40px;
-    margin: 3rem 0;
-    text-align: left;
   }
 
   .movie {
@@ -105,6 +104,13 @@ export const Container = styled.div`
     }
   }
 
+  .genres{
+    line-height: 130%;
+    margin-bottom: 1rem;
+    font-size: 110%;
+    font-weight: lighter;
+  }
+
   span {
     line-height: 130%;
     margin-bottom: 1rem;
@@ -122,42 +128,73 @@ export const Container = styled.div`
     opacity: 0.5;
   }
 
-  .cast {
-    margin-top: 20px;
-  h2 {
-    font-size: 20px;
-    margin-bottom: 16px;
+  .vote-average{
+    margin-bottom: 20px;
     color: white;
- 
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #1E1621;
+    cursor: default;
+
   }
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    
-    list-style: none;
-    padding: 0;
+  h2{
+    margin: 1rem 0;
+  }
+
+  .cast {
     margin: 0;
+    width: 60%;
+    object-fit: cover;
+}
+  .name_act{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px; 
+    margin-bottom: 1rem;
+    font-weight: lighter;
+    text-align: center;
+    margin-right: 40%;
 
-    li {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 16px;
-      
-      img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
+  }
 
-      span {
-        margin-top: 8px;
-        text-align: center;
-        color: white;
-      }
-    }
+  .director-image{
+    margin-top: 16px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .video-trailer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+  }
+  .video-container {
+
+    width: 40%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 4rem;
+
+  iframe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px;  
   }
 }
   .show-more-button-container {
@@ -186,6 +223,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     display: flex;
+    margin-bottom: 3rem;
 
 
   }
