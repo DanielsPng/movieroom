@@ -1,4 +1,4 @@
-# My Movie Room - Explore the Enchanting World of Cinema 🍿🎥🎬
+# My Movie Room - Explore the Magical World of Cinema 🍿🎥🎬
 
 ## What is My Movie Room?
 
