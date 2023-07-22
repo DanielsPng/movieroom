@@ -79,7 +79,7 @@ function Home() {
       
           </nav>
         </header>
-        <img className="bg" src={joker} alt="" />
+        <div className="bg" style={{ backgroundImage: `url(${joker})` }}></div>
         <div className="presentation">
           
           <div className="shadow"></div>

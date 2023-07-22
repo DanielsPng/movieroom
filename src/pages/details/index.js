@@ -11,7 +11,6 @@ import YouTube from "react-youtube";
 
 function CastCarousel({ cast }) {
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 5,
@@ -79,15 +78,17 @@ function Details() {
   const [director, setDirector] = useState("");
   const [directorImage, setDirectorImage] = useState("");
   const [voteAverage, setVoteAverage] = useState("");
-  const [movieImages, setMovieImages] = useState([]);
-  const [sliderSettings, setSliderSettings] = useState({
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  });
-
+  const initialShowFullSynopsis = localStorage.getItem("showFullSynopsis") === "true";
+  const [showFullSynopsis, setShowFullSynopsis] = useState(initialShowFullSynopsis);
+  const maxSynopsisLength = 150 && 155;
+   
+  const toggleSynopsis = () => {
+    setShowFullSynopsis(!showFullSynopsis);
+  };
+  useEffect(() => {
+    localStorage.setItem("showFullSynopsis", showFullSynopsis.toString());
+  }, [showFullSynopsis]);
+  
   useEffect(() => {
     animateScroll.scrollToTop();
 
@@ -186,14 +187,27 @@ function Details() {
           )}
           <span>
             <span className="sinopse">Sinopse: </span>
-            {movie.sinopse}
+            {/* Verifica se a sinopse existe antes de usar a função slice */}
+            {movie.sinopse ? (
+              showFullSynopsis ? (
+                movie.sinopse
+              ) : (
+                `${movie.sinopse.slice(0, maxSynopsisLength)}...`
+              )
+            ) : (
+              "Sinopse não disponível"
+            )}
+            {/* Mostrar o botão "Ler Mais" se a sinopse existir e tiver mais de maxSynopsisLength caracteres */}
+            {movie.sinopse && movie.sinopse.length > maxSynopsisLength && (
+              <button onClick={toggleSynopsis} className="read-more-button">
+                {showFullSynopsis ? "Ler Menos" : "Ler Mais"}
+              </button>
+            )}
           </span>
           <span className="releaseDate"> {movie.releaseDate}</span>
           <p className="director">Director: {director}</p>
           {directorImage && <img className="director-image" src={`https://image.tmdb.org/t/p/w400${directorImage}`} alt="Director" />}
-          <Link to="/">
-            <button className="back">Go Back</button>
-          </Link>
+          
           <div className="cast">
             <h2>Elenco Principal</h2>
             <CastCarousel cast={cast} />
@@ -225,7 +239,9 @@ function Details() {
           </div>
         )}
       </div>
-
+          <Link to="/">
+            <button className="back">Go Back</button>
+          </Link>
      
     </Container>
   );

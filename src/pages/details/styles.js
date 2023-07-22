@@ -16,13 +16,31 @@ export const Container = styled.div`
     z-index: -1;
    }
 
-  @media (max-width: 900px) {
-    
+   @media (max-width: 570px) {
+
+    .details{
+      h1{
+        font-size: 30px;
+      }
+    }
+    .similar-movies{
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+   }
+  @media (max-width: 880px) {
+
+    .video-container{
+      width: 80%;
+    }
 
     .movie {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
     }
 
     h1 {
@@ -35,24 +53,45 @@ export const Container = styled.div`
     }
 
     .details {
+      align-items: center;
+      display: flex;
       margin-left: 0;
       
     }
 
+    .vote-average{
+      background-color: #6654da;
+    }
+
+    .genres{
+      text-align: center;
+    }
+
     .back {
-      position: relative;
-      padding: 0.7rem 4rem;
-      margin-top: 1rem;
+      padding: 0.4rem 2rem;
+      position: absolute;
+      margin: 1rem 2rem;
+      top: 0;
+    }
+
+    .cast {
+
+    h2{
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
     }
   }
+  }
 
-  @media (min-width: 900px) {
+  @media (min-width: 880px) {
     .details {
       margin-left: 4rem;
       align-items: center;
+    }
+
+    .video-container{
+      width: 40%;
     }
 
     h1 {
@@ -61,9 +100,13 @@ export const Container = styled.div`
 
     .back {
       position: absolute;
-      padding: 0.7rem 2rem;
-      top: 3rem;
+      padding: 0.4rem 2rem;
+      top: 0.8rem;
       left: 3rem;
+    }
+
+    .vote-average{
+      background-color: #1E1621;
     }
   }
 
@@ -73,9 +116,8 @@ export const Container = styled.div`
 
   .movie {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 4rem;
+    padding: 4rem 4rem 1rem 4rem;
   }
 
   img {
@@ -122,6 +164,15 @@ export const Container = styled.div`
     font-weight: bold;
   }
 
+  .read-more-button{
+    background-color: transparent;
+    margin-bottom: 1rem;
+    font-weight: lighter;
+    font-size: 16px;
+    border: none;
+    color: wheat;
+  }
+
 
   .releaseDate {
     font-weight: light;
@@ -139,7 +190,6 @@ export const Container = styled.div`
     justify-content: center;
     width: 50px;
     height: 50px;
-    background-color: #1E1621;
     cursor: default;
 
   }
@@ -182,7 +232,6 @@ export const Container = styled.div`
   }
   .video-container {
 
-    width: 40%;
     max-width: 800px;
     margin: 0 auto;
     border-radius: 8px;
@@ -197,10 +246,11 @@ export const Container = styled.div`
     height: 300px;  
   }
 }
+
   .show-more-button-container {
+    padding-bottom: 3rem;
     display: flex;
     justify-content: center;
-    margin: 20px;
   }
 
   .show-more-button {
@@ -219,6 +269,7 @@ export const Container = styled.div`
   }
 
   .similar {
+    padding-top: 3rem;
     font-size: 30px;
     align-items: center;
     justify-content: center;
@@ -226,6 +277,10 @@ export const Container = styled.div`
     margin-bottom: 3rem;
 
 
+  }
+
+  .similar-movies{
+    background-color: rgb(43 30 49);
   }
 
 `

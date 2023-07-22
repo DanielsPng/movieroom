@@ -38,8 +38,6 @@ export const Container = styled.div `
         }
 
         button{
-            position : relative;
-            right: 20px;
             padding: 9.8px 40px;
             background: #6654da;
             border: none;
@@ -47,9 +45,7 @@ export const Container = styled.div `
             color: white;
             font-size: 100%;
             transition: 0.3s;
-            /* border-bottom-right-radius: 4rem;
-            border-top-right-radius: 4rem; */
-            border-radius: 4rem;
+            border-bottom-right-radius: 4rem;
             border: none;
             box-shadow: -4px 2px 25px black;
         }
@@ -188,11 +184,11 @@ export const Container = styled.div `
         }
     }
     .presentation {
+        height: 100vh;
         justify-content: center;
         overflow: hidden;
         display: flex;
         align-items: center;
-        gap: 5rem;
     }
 
     .presentation .glow {
@@ -211,37 +207,51 @@ export const Container = styled.div `
     }
     .presentation .presentation__text {
         z-index: 4;
-        top: 4rem;
-        position: absolute;
-        padding: 5rem;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
     }
     .bg{
-        -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.863) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
-                mask-image: linear-gradient(rgba(0, 0, 0, 0.863) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
-
-        opacity: 70%;
-        width: 200%;
-        height: 110%;
-        max-width: 1400px; /* Defina o tamanho máximo da imagem de acordo com suas preferências */
-        object-fit: contain;
-
+           mask-image: linear-gradient(rgb(0 0 0 / 93%) 0%, rgb(0 0 0 / 88%) 50%, rgb(0 0 0 / 0%) 100%);
+            position: absolute;
+            width: 100%;
+            height: 100vh; /* Ajuste a altura conforme necessário */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 30%;
+            z-index: 0;
       
     }
 
-    @media (max-width: 900px) {
-        .bg {
-            max-width: 900px;
-            left: -600px;
-            width: 1500px;
+    
+    @media (max-width: 570px) {
 
+    .search-bar{
+        input{
+            width: 166px;
+        }
+        }
+        .button{
+            padding: 9.8px 20px;
         }
 
+    }
+
+
+    @media (max-width: 900px) {
         .mouse_down {
             display: none;
+        }
+
+        .best-movies{
+            .movie {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
         }
     }
 
@@ -298,25 +308,24 @@ export const Container = styled.div `
     }
 
     .show-more-button-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-  }
-
-  .show-more-button {
-    padding: 8px 16px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-    color: #6654da;
-    font-size: 100%;
-    transition: 0.3s;
-
-    &:hover {
-        color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        margin: 20px;
     }
 
+  .show-more-button {
+        padding: 8px 16px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        border-radius: 20px;
+        color: #6654da;
+        font-size: 100%;
+        transition: 0.3s;
+
+        &:hover {
+            color: whitesmoke;
+    }
 
 
 }
