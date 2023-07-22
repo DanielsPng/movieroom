@@ -1,7 +1,21 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  padding: 8rem;
+  .movie-banner {
+    mask-image: linear-gradient(rgb(0 0 0 / 93%) 0%, rgb(0 0 0 / 88%) 50%, rgb(0 0 0 / 0%) 100%);
+    position: absolute;
+    width: 100%;
+    height: 60vh; /* Ajuste a altura conforme necessário */
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 30%;
+    z-index: -1;
+   }
+
+   .search{
+      padding: 4rem 0;
+   }
+
 
   @media (max-width: 900px) {
     padding: 2rem 0rem;
@@ -31,10 +45,6 @@ export const Container = styled.div`
   }
 
   @media (min-width: 900px) {
-    .details {
-      margin-left: 4rem;
-      align-items: center;
-    }
 
     h1 {
       font-size: 60px;
@@ -49,7 +59,10 @@ export const Container = styled.div`
   }
 
   h1 {
-    margin: 3rem 0;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+
   }
 
   .movie {
@@ -58,18 +71,7 @@ export const Container = styled.div`
     justify-content: center;
   }
 
-  img {
-    width: 300px;
-    border-radius: 10px;
-  }
 
-  .details {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 50%;
-  }
 
   .back {
     background: #6654da;
@@ -86,47 +88,19 @@ export const Container = styled.div`
   }
 
   span {
-    line-height: 130%;
     margin-bottom: 1rem;
-    font-size: 110%;
     font-weight: lighter;
   }
 
-  .sinopse {
-    font-weight: bold;
-  }
-
-  .releaseDate {
-    font-weight: light;
-    opacity: 0.5;
-  }
-  .show-more-button-container {
+  
+  p {
     display: flex;
-    justify-content: center;
-  }
-
-  .show-more-button {
-    padding: 8px 16px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-    color: #6654da;
-    font-size: 100%;
-    transition: 0.3s;
-
-    &:hover {
-        color: whitesmoke;
-    }
-  }
-
-  .similar {
-    font-size: 30px;
     align-items: center;
     justify-content: center;
-    display: flex;
-
-
+    font-size: 50px;
+    color: white;
+    opacity: 40%;
+    margin-bottom: 3rem;
   }
 `
 
@@ -163,11 +137,6 @@ export const Movie = styled.li`
 
   a {
     transition: all 0.3s;
-
-    &:hover {
-      filter: drop-shadow(3px 0px 9px rgba(0, 0, 0, 0.1));
-      transform: scale(1.1);
-    }
   }
 
 `
