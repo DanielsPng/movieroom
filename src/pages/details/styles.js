@@ -16,6 +16,25 @@ export const Container = styled.div`
     z-index: -1;
    }
 
+   .trailer-button-container {
+    position: relative;
+    top: -5px;
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  .trailer-button {
+    padding: 5px 20px;
+    font-size: 14px;
+    background-color: #5848c2;
+    color: #fff;
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+  }
+
    @media (max-width: 570px) {
 
     .details{
@@ -123,6 +142,7 @@ export const Container = styled.div`
   img {
     width: 280px;
     border-radius: 10px;
+    box-shadow: 0px 29px 31px -24px rgba(0,0,0,0.75);
   }
 
   .details {

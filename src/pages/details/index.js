@@ -170,13 +170,27 @@ function Details() {
     ));
   };
 
+  const openTrailerLink = () => {
+    if (videoKey) {
+      window.open(`https://www.youtube.com/watch?v=${videoKey}`, "_blank");
+    }
+  };
+
   return (
     <Container>
       <div className="movie-banner" style={{ backgroundImage: `url(${movie.backdrop})` }}></div>
       <div className="movie">
         <div className="movie-image">
           <img src={movie.image} alt={movie.title} />
+          {videoKey && (
+        <div className="trailer-button-container">
+          <button className="trailer-button" onClick={openTrailerLink}>
+            Assistir Trailer
+          </button>
         </div>
+      )}
+        </div>
+       
         <div className="details">
           <h1>{movie.title}</h1>
           <p className="genres">{movie.genres}</p>
@@ -214,7 +228,7 @@ function Details() {
           </div>
         </div>
       </div>
-      {/* Render the YouTube video trailer */}
+      {/* Render the YouTube video trailer
       {videoKey && (
       <div className="video-trailer"> 
       <h2>Trailer</h2>
@@ -222,7 +236,7 @@ function Details() {
         <YouTube videoId={videoKey} />
       </div>
       </div>
-    )}
+    )} */}
 
 
       <div className="similar-movies">

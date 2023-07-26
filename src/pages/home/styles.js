@@ -220,7 +220,7 @@ export const Container = styled.div `
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            opacity: 30%;
+            opacity: 50%;
             z-index: 0;
       
     }
