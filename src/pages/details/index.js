@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { key } from "../../config/key";
 import { Container, Movie, MovieList } from "./styles";
-import { animateScroll } from 'react-scroll';
+import { animateScroll } from "react-scroll";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -41,7 +41,11 @@ function CastCarousel({ cast }) {
     <Slider {...settings}>
       {cast.map((actor) => (
         <div key={actor.id}>
-          <img className="cast" src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.name} />
+          <img
+            className="cast"
+            src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+            alt={actor.name}
+          />
           <span className="name_act">{actor.name}</span>
         </div>
       ))}
@@ -60,7 +64,9 @@ function Details() {
         `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${key}&language=en-US`
       );
       const videos = response.data.results;
-      const trailer = videos.find((video) => video.type === "Trailer" && video.site === "YouTube");
+      const trailer = videos.find(
+        (video) => video.type === "Trailer" && video.site === "YouTube"
+      );
       if (trailer) {
         setVideoKey(trailer.key);
       }
@@ -78,17 +84,20 @@ function Details() {
   const [director, setDirector] = useState("");
   const [directorImage, setDirectorImage] = useState("");
   const [voteAverage, setVoteAverage] = useState("");
-  const initialShowFullSynopsis = localStorage.getItem("showFullSynopsis") === "true";
-  const [showFullSynopsis, setShowFullSynopsis] = useState(initialShowFullSynopsis);
+  const initialShowFullSynopsis =
+    localStorage.getItem("showFullSynopsis") === "true";
+  const [showFullSynopsis, setShowFullSynopsis] = useState(
+    initialShowFullSynopsis
+  );
   const maxSynopsisLength = 150 && 155;
-   
+
   const toggleSynopsis = () => {
     setShowFullSynopsis(!showFullSynopsis);
   };
   useEffect(() => {
     localStorage.setItem("showFullSynopsis", showFullSynopsis.toString());
   }, [showFullSynopsis]);
-  
+
   useEffect(() => {
     animateScroll.scrollToTop();
 
@@ -119,10 +128,17 @@ function Details() {
     )
       .then((response) => response.json())
       .then((data) => {
-        const { title, poster_path, backdrop_path, genres, release_date, overview } = data;
+        const {
+          title,
+          poster_path,
+          backdrop_path,
+          genres,
+          release_date,
+          overview,
+        } = data;
         const genreNames = genres.map((genre) => genre.name);
         const voteAverage = data.vote_average.toFixed(2); // Formatação para 3 dígitos após o ponto
-        setVoteAverage(voteAverage);   
+        setVoteAverage(voteAverage);
         const movieData = {
           id,
           title,
@@ -178,19 +194,22 @@ function Details() {
 
   return (
     <Container>
-      <div className="movie-banner" style={{ backgroundImage: `url(${movie.backdrop})` }}></div>
+      <div
+        className="movie-banner"
+        style={{ backgroundImage: `url(${movie.backdrop})` }}
+      ></div>
       <div className="movie">
         <div className="movie-image">
           <img src={movie.image} alt={movie.title} />
           {videoKey && (
-        <div className="trailer-button-container">
-          <button className="trailer-button" onClick={openTrailerLink}>
-            Assistir Trailer
-          </button>
+            <div className="trailer-button-container">
+              <button className="trailer-button" onClick={openTrailerLink}>
+                Assistir Trailer
+              </button>
+            </div>
+          )}
         </div>
-      )}
-        </div>
-       
+
         <div className="details">
           <h1>{movie.title}</h1>
           <p className="genres">{movie.genres}</p>
@@ -202,15 +221,11 @@ function Details() {
           <span>
             <span className="sinopse">Sinopse: </span>
             {/* Verifica se a sinopse existe antes de usar a função slice */}
-            {movie.sinopse ? (
-              showFullSynopsis ? (
-                movie.sinopse
-              ) : (
-                `${movie.sinopse.slice(0, maxSynopsisLength)}...`
-              )
-            ) : (
-              "Sinopse não disponível"
-            )}
+            {movie.sinopse
+              ? showFullSynopsis
+                ? movie.sinopse
+                : `${movie.sinopse.slice(0, maxSynopsisLength)}...`
+              : "Sinopse não disponível"}
             {/* Mostrar o botão "Ler Mais" se a sinopse existir e tiver mais de maxSynopsisLength caracteres */}
             {movie.sinopse && movie.sinopse.length > maxSynopsisLength && (
               <button onClick={toggleSynopsis} className="read-more-button">
@@ -220,8 +235,14 @@ function Details() {
           </span>
           <span className="releaseDate"> {movie.releaseDate}</span>
           <p className="director">Director: {director}</p>
-          {directorImage && <img className="director-image" src={`https://image.tmdb.org/t/p/w400${directorImage}`} alt="Director" />}
-          
+          {directorImage && (
+            <img
+              className="director-image"
+              src={`https://image.tmdb.org/t/p/w400${directorImage}`}
+              alt="Director"
+            />
+          )}
+
           <div className="cast">
             <h2>Elenco Principal</h2>
             <CastCarousel cast={cast} />
@@ -238,12 +259,9 @@ function Details() {
       </div>
     )} */}
 
-
       <div className="similar-movies">
         <h1 className="similar">Filmes Similares</h1>
-        <MovieList>
-          {renderMovies()}
-        </MovieList>
+        <MovieList>{renderMovies()}</MovieList>
 
         {visibleMovies < similarMovies.length && (
           <div className="show-more-button-container">
@@ -253,10 +271,9 @@ function Details() {
           </div>
         )}
       </div>
-          <Link to="/">
-            <button className="back">Go Back</button>
-          </Link>
-     
+      <Link to="/">
+        <button className="back">Go Back</button>
+      </Link>
     </Container>
   );
 }
