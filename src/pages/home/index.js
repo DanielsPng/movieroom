@@ -24,7 +24,9 @@ function Home() {
   }, []);
 
   const handleShowMore = () => {
-    setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + increment);
+    const newVisibleQuantity = visibleMovies + increment;
+
+    setVisibleMovies(newVisibleQuantity);
 
     // Rolar a página para baixo automaticamente após carregar mais filmes
     animateScroll.scrollToBottom();

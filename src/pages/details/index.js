@@ -165,7 +165,10 @@ function Details() {
   }, [id]);
 
   const handleShowMore = () => {
-    setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + increment);
+    const newVisibleQuantity = visibleMovies + increment;
+
+    setVisibleMovies(newVisibleQuantity);
+
     animateScroll.scrollToBottom({
       duration: 500,
       delay: 100,
