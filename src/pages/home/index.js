@@ -9,8 +9,8 @@ import { animateScroll } from "react-scroll";
 
 function Home() {
   const [movies, setMovies] = useState([]);
-  const [visibleMovies, setVisibleMovies] = useState(8); // Número de filmes a serem exibidos inicialmente
-  const increment = 8; // Número de filmes para adicionar quando clicar em "Ver Mais"
+  const [visibleMovies, setVisibleMovies] = useState(10); // Número de filmes a serem exibidos inicialmente
+  const increment = 10; // Número de filmes para adicionar quando clicar em "Ver Mais"
   const image_path = "https://image.tmdb.org/t/p/w500";
   const [searchQuery, setSearchQuery] = useState(""); // Termo de pesquisa
   const navigate = useNavigate();
