@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { key } from "../../config/key";
 import { Container, Movie, MovieList } from "./styles";

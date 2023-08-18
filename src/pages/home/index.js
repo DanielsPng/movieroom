@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Container, MovieList, Movie } from "./styles";
 import mouse_down from "./assets/icons/mouse-down.svg";
 import Ellipse from "./assets/icons/Ellipse 1.svg";
