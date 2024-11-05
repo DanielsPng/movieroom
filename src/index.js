@@ -9,13 +9,13 @@ import Search from './pages/search';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-  <Routes>
-    <Route path="/" element={<Home/>}/>
-    <Route path="/details/:id" element={<Details/>}/>
-    <Route path="/search" element={<Search/>}/>
-  </Routes>
-  </BrowserRouter>
+  //<BrowserRouter>
+//  <Routes>
+//<Route path="/" element={<Home/>}/>
+ //   <Route path="/details/:id" element={<Details/>}/>
+//<Route path="/search" element={<Search/>}/>
+//  </Routes>
+// </BrowserRouter>
 
 );
 
